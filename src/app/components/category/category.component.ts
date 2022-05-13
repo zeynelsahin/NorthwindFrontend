@@ -11,6 +11,7 @@ export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
   currentCategory: Category;
+  currentCategory1: Category;
 
   constructor(private categoryService: CategoryService) {
   }
@@ -24,6 +25,10 @@ export class CategoryComponent implements OnInit {
     this.currentCategory = category;
   }
 
+  setCurrentCategoryNull() {
+    this.currentCategory = this.currentCategory1;
+  }
+
   getCurrentCategoryClass(category: Category) {
 
     if (category == this.currentCategory) {
@@ -33,9 +38,18 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+
   getCategories() {
     this.categoryService.getProducts().subscribe((response) => {
       this.categories = response.data;
     })
+  }
+
+  getAllCategoryClass() {
+    if (!this.currentCategory) {
+      return "list-group-item active";
+    } else {
+      return "list-group-item ";
+    }
   }
 }

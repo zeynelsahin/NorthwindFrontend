@@ -8,19 +8,33 @@ import { ProductComponent } from './components/product/product.component';
 import { CategoryComponent } from './components/category/category.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import {FormsModule} from "@angular/forms";
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
     ProductComponent,
-    CategoryComponent
+    CategoryComponent,
+    VatAddedPipe,
+    FilterPipePipe,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

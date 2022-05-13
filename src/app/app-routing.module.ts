@@ -4,8 +4,9 @@ import {ProductComponent} from "./components/product/product.component";
 import {CategoryComponent} from "./components/category/category.component";
 
 const routes: Routes = [
-  {path:"",pathMatch:"full",component:ProductComponent},
-  {path:"categories",component:CategoryComponent}
+  {path:"products",pathMatch:"full",component:ProductComponent},
+  {path:"categories",component:CategoryComponent},
+  {path:"products/category/:categoryId",component:ProductComponent}
 
 ];
 
