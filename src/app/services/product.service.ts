@@ -3,13 +3,15 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ListResponseModel} from "../models/listResponseModel";
 import {Product} from "../models/product";
+import {ResponseModel} from "../models/responseModel";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  apiUrl = "https://zeynelsahin.com/api/"
+  apiUrl="https://localhost:44348/api/";
+  // apiUrl = "https://zeynelsahin.com/api/"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,5 +22,8 @@ export class ProductService {
   getProductByCategory(categoryId:number):Observable<ListResponseModel<Product>> {
     let newPath=this.apiUrl+"products/getallbycategory?id="+categoryId;
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
+  add(product:Product):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product);
   }
 }

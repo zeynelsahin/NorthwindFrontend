@@ -26,13 +26,13 @@
           </div>
 
           <div class="form-group mb-3">
-            <label for="uniPrice">Ürün Birim Fiyatı</label>
-            <input type="number" id="uniPrice" formControlName="uniPrice" class="form-control" placeholder="Fiyatı">
+            <label for="unitPrice">Ürün Birim Fiyatı</label>
+            <input type="number" id="unitPrice" formControlName="unitPrice" class="form-control"  placeholder="Fiyatı">
           </div>
         </form>
       </div>
       <div class="card-footer">
-        <button class="btn btn-fill btn-primary">Ekle</button>
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
       </div>
 
     </div>
